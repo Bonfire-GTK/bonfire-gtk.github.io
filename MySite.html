@@ -1,0 +1,464 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Inter%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Ada Yalıtım - Adım Adım Mükemmel Yalıtım Çözümleri</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script>
+      // === IMAGE URLS - Easy to change from here ===
+      const IMAGE_URLS = {
+        // Hero section background
+        heroBackground: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        
+        // Service section images
+        tavanYalitimi: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        duvarYalitimi: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        tumYuzeyler: "https://images.unsplash.com/photo-1585664811087-47f65abbad64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        
+        // Project section images
+        villaKompleks: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        ofisBinasi: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        apartmanSu: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        
+        // Fallback placeholder
+        placeholder: "https://placehold.co/1200x600/cccccc/333333?text=Profesyonel+Yalıtım"
+      };
+    </script>
+
+    <style>
+      /* Subtle glow animation for key CTAs */
+      @keyframes classy-glow {
+        0%, 100% {
+          box-shadow: 0 10px 25px rgba(251, 146, 60, 0.3), 0 4px 12px rgba(251, 146, 60, 0.2);
+        }
+        50% {
+          box-shadow: 0 15px 35px rgba(251, 146, 60, 0.4), 0 6px 18px rgba(251, 146, 60, 0.3);
+        }
+      }
+      .animate-classy-glow {
+        animation: classy-glow 3s infinite ease-in-out;
+      }
+      /* Facebook blue glow animation */
+      @keyframes facebook-glow {
+        0%, 100% {
+          box-shadow: 0 10px 25px rgba(24, 119, 242, 0.3), 0 4px 12px rgba(24, 119, 242, 0.2);
+        }
+        50% {
+          box-shadow: 0 15px 35px rgba(24, 119, 242, 0.4), 0 6px 18px rgba(24, 119, 242, 0.3);
+        }
+      }
+      .animate-facebook-glow {
+        animation: facebook-glow 3s infinite ease-in-out;
+      }
+      /* Style for the card overlay */
+      .card-overlay {
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+      }
+      .group:hover .card-overlay {
+          opacity: 1;
+      }
+      /* Prevent scroll on body when mobile menu is open */
+      .body-no-scroll {
+        overflow: hidden;
+      }
+    </style>
+</head>
+<body class="bg-[#6aabd2]">
+    <div
+      class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden"
+      style='font-family: Inter, "Noto Sans", sans-serif;'
+    >
+      <div>
+        <div class="flex items-center bg-[#6aabd2] p-4 pb-2 justify-between sticky top-0 z-50 shadow-md">
+          <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+            <h2 class="text-slate-900 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-left">Ada Yalıtım</h2>
+            <button
+              id="header-cta-button" 
+              class="flex items-center justify-center rounded-full h-10 px-6 bg-slate-700 text-white text-sm font-semibold leading-normal tracking-[0.015em] hover:bg-slate-600 transition-all duration-300 ease-in-out whitespace-nowrap"
+              onclick="document.getElementById('contact-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'center' });"
+            >
+              Hızlı Teklif
+            </button>
+            <div class="flex w-12 items-center justify-end md:hidden">
+              <button
+                id="mobile-menu-toggle"
+                class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 bg-transparent text-slate-900 gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+              >
+                <div id="mobile-menu-icon-container" class="text-slate-900" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                    <path
+                      d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-slate-900 bg-opacity-95 z-40 flex flex-col items-center justify-center" role="dialog" aria-modal="true">
+          <nav class="flex flex-col gap-6 text-center">
+            <a href="#" onclick="document.getElementById('services-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); closeMobileMenu(); return false;" class="text-white hover:text-orange-400 py-3 text-2xl font-semibold">Hizmetlerimiz</a>
+            <a href="#" onclick="document.getElementById('work-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); closeMobileMenu(); return false;" class="text-white hover:text-orange-400 py-3 text-2xl font-semibold">Projelerimiz</a>
+            <a href="#" onclick="document.getElementById('contact-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'center' }); closeMobileMenu(); return false;" class="text-white hover:text-orange-400 py-3 text-2xl font-semibold">İletişim</a>
+            <button onclick="closeMobileMenu();" class="mt-8 text-slate-400 hover:text-white text-xl font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400">Menüyü Kapat</button>
+          </nav>
+        </div>
+
+        <div class="@container">
+          <div class="@[480px]:p-4">
+            <div class="max-w-7xl mx-auto">
+              <div
+                id="hero-background"
+                class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
+              >
+                <div class="flex flex-col gap-2 text-left">
+                  <h1
+                    class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                  >
+                    Isı, Ses ve Suya Karşı Tam Koruma
+                  </h1>
+                  <h2 class="text-gray-200 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                    Profesyonel ekibimiz ile tavan, duvar ve tüm yüzeyler için mükemmel yalıtım performansı. Konforlu ve verimli yaşam alanları için kapsamlı yalıtım çözümleri.
+                  </h2>
+                </div>
+                <button
+                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 @[480px]:h-14 @[480px]:px-8 bg-slate-800 text-white text-lg font-semibold leading-normal tracking-[0.015em] hover:bg-slate-700 hover:scale-105 transform transition-all duration-300"
+                  onclick="document.getElementById('contact-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'center' });"
+                >
+                  <span class="truncate">Teklif İsteyin</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="services-section-anchor" class="flex flex-col gap-10 px-4 py-10 @container bg-[#6aabd2]">
+          <div class="max-w-7xl mx-auto w-full">
+            <div class="flex flex-col gap-6">
+              <div class="flex flex-col gap-4">
+                <h1
+                  class="text-slate-900 tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                >
+                  Kapsamlı Yalıtım Hizmetlerimiz
+                </h1>
+                <p class="text-slate-800 text-base font-normal leading-normal max-w-[720px]">
+                  Mükemmel yalıtım performansı için her yüzey ve ihtiyaca özel çözümler. Temiz işçilik ve doğru yalıtım taahhüdü ile hizmetinizdeyiz.
+                </p>
+              </div>
+            </div>
+            <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 md:gap-6 mt-10">
+              <a href="#" onclick="document.getElementById('contact-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'center' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
+                <div class="flex flex-col gap-3 p-4">
+                  <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
+                      <div id="tavan-yalitimi-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
+                      <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl">
+                          <span class="text-white text-lg font-bold">Teklif İsteyin ➞</span>
+                      </div>
+                  </div>
+                  <div>
+                    <p class="text-slate-900 text-lg font-semibold leading-normal">Tavan Yalıtımı</p>
+                    <p class="text-slate-700 text-sm font-normal leading-normal">Isı kaybını önleyen, enerji tasarrufu sağlayan profesyonel tavan yalıtım uygulamaları.</p>
+                  </div>
+                </div>
+              </a>
+              <a href="#" onclick="document.getElementById('contact-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'center' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
+                <div class="flex flex-col gap-3 p-4">
+                  <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
+                      <div id="duvar-yalitimi-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
+                      <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl">
+                          <span class="text-white text-lg font-bold">Teklif İsteyin ➞</span>
+                      </div>
+                  </div>
+                  <div>
+                    <p class="text-slate-900 text-lg font-semibold leading-normal">Duvar Yalıtımı</p>
+                    <p class="text-slate-700 text-sm font-normal leading-normal">Ses ve ısı yalıtımı ile nem bariyeri sağlayan etkili duvar yalıtım sistemleri.</p>
+                  </div>
+                </div>
+              </a>
+              <a href="#" onclick="document.getElementById('contact-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'center' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
+                <div class="flex flex-col gap-3 p-4">
+                  <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
+                      <div id="tum-yuzeyler-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
+                      <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl">
+                          <span class="text-white text-lg font-bold">Teklif İsteyin ➞</span>
+                      </div>
+                  </div>
+                  <div>
+                    <p class="text-slate-900 text-lg font-semibold leading-normal">Tüm Yüzeyler</p>
+                    <p class="text-slate-700 text-sm font-normal leading-normal">Zemin, çatı ve özel alanlar için tamamen yalıtım çözümleri ve su yalıtımı uygulamaları.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div id="work-section-anchor" class="flex flex-col gap-10 px-4 py-10 @container bg-[#6aabd2]">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="flex flex-col gap-6">
+                    <div class="flex flex-col gap-4">
+                    <h1
+                        class="text-slate-900 tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                    >
+                        Başarılı Yalıtım Projelerimiz
+                    </h1>
+                    <p class="text-slate-800 text-base font-normal leading-normal max-w-[720px]">
+                        21 ilde 40 merkezimizle geniş hizmet ağımız sayesinde binlerce başarılı proje gerçekleştirdik. Müşteri memnuniyeti odaklı çalışmalarımızı inceleyin.
+                    </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 md:gap-6 mt-10">
+                <a href="#" onclick="document.getElementById('contact-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'center' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
+                    <div class="flex flex-col gap-3 p-4">
+                        <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
+                            <div id="villa-kompleks-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
+                            <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl">
+                                <span class="text-white text-lg font-bold">Teklif İsteyin ➞</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-slate-900 text-lg font-semibold leading-normal">Villa Kompleks Yalıtımı</p>
+                            <p class="text-slate-700 text-sm font-normal leading-normal">Kapsamlı tavan ve duvar yalıtımı ile mükemmel enerji verimliliği sağlandı.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" onclick="document.getElementById('contact-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'center' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
+                    <div class="flex flex-col gap-3 p-4">
+                        <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
+                            <div id="ofis-binasi-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
+                            <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl">
+                                <span class="text-white text-lg font-bold">Teklif İsteyin ➞</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-slate-900 text-lg font-semibold leading-normal">Ofis Binası Ses Yalıtımı</p>
+                            <p class="text-slate-700 text-sm font-normal leading-normal">Profesyonel ekip ile ses yalıtımı ve nem bariyeri uygulaması başarıyla tamamlandı.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" onclick="document.getElementById('contact-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'center' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
+                    <div class="flex flex-col gap-3 p-4">
+                        <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
+                            <div id="apartman-su-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
+                            <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl">
+                                <span class="text-white text-lg font-bold">Teklif İsteyin ➞</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-slate-900 text-lg font-semibold leading-normal">Apartman Su Yalıtımı</p>
+                            <p class="text-slate-700 text-sm font-normal leading-normal">Detaylı planlama ile su yalıtımı ve ısı kaybını önleme çözümleri uygulandı.</p>
+                        </div>
+                    </div>
+                </a>
+               </div>
+            </div>
+        </div>
+        
+        <div class="h-40 md:h-64 bg-gradient-to-b from-[#6aabd2] to-slate-700"></div>
+
+        <div class="bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 py-16 md:py-32 lg:py-40 shadow-2xl md:min-h-screen flex items-center" id="contact-section-anchor"> 
+          <div class="flex flex-col justify-center items-center gap-6 px-6 @[480px]:gap-10 @[480px]:px-12 py-8 @[480px]:py-16 md:py-24 text-center mx-auto max-w-5xl w-full">
+            <div class="flex flex-col gap-8">
+              <h1
+                class="text-orange-400 tracking-tight text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[900px]"
+              >
+                Ada Yalıtım ile Yaşam Alanınızı Koruyun!
+              </h1>
+              <p class="text-gray-200 text-xl md:text-2xl font-medium leading-relaxed max-w-[800px] mx-auto">
+                Ev sahipleri, işletme sahipleri ve inşaat profesyonelleri Ada Yalıtım'a güveniyor. Mükemmel yalıtım performansı için sahada hazır ekibimizle sorunsuz teslimat garantisi.
+              </p>
+              <div class="text-gray-300 text-2xl md:text-3xl font-bold mt-6 bg-slate-800/50 py-6 px-8 rounded-2xl border border-slate-600">
+                📞 İletişim: 0555 052 54 54
+              </div>
+            </div>
+            <div class="flex justify-center w-full @[480px]:w-auto mt-8">
+              <!-- Mobile buttons: Call, Facebook, WhatsApp (visible on small screens only) -->
+              <div class="flex flex-col gap-4 w-full md:hidden">
+                <button
+                  class="flex min-w-[320px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 px-8 bg-orange-500 text-white text-xl font-extrabold leading-normal tracking-[0.015em] hover:bg-orange-600 transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105 animate-classy-glow"
+                  onclick="window.open('tel:05550525454', '_self');" 
+                >
+                  <span class="truncate">📞 Hemen Arayın! 0555 052 54 54</span>
+                </button>
+                <button
+                  class="flex min-w-[320px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 px-8 bg-[#1877F2] text-white text-xl font-extrabold leading-normal tracking-[0.015em] hover:bg-[#166FE5] transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105"
+                  onclick="window.open('https://www.facebook.com', '_blank');" 
+                >
+                  <span class="truncate">💬 Facebook'ta Sohbet Et</span>
+                </button>
+                <button
+                  class="flex min-w-[320px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 px-8 bg-[#25D366] text-white text-xl font-extrabold leading-normal tracking-[0.015em] hover:bg-[#20BD5A] transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105"
+                  onclick="window.open('https://wa.me/905550525454', '_blank');" 
+                >
+                  <span class="truncate">📱 WhatsApp'tan Yaz</span>
+                </button>
+              </div>
+              
+              <!-- Desktop button: Facebook only (visible on medium screens and up) -->
+              <div class="hidden md:block">
+                <button
+                  class="flex min-w-[400px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-24 px-16 bg-[#1877F2] text-white text-3xl font-extrabold leading-normal tracking-[0.015em] hover:bg-[#166FE5] transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105 animate-facebook-glow"
+                  onclick="window.open('https://www.facebook.com', '_blank');" 
+                >
+                  <span class="truncate">💬 Facebook'ta Sohbet Et ➞</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="flex flex-col gap-6 px-5 py-10 text-center @container bg-slate-900 border-t border-slate-700">
+          <div class="max-w-7xl mx-auto w-full">
+            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 @[480px]:flex-row @[480px]:justify-around">
+              <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="#">Hakkımızda</a>
+              <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="#" onclick="document.getElementById('services-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Hizmetlerimiz</a>
+              <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="#" onclick="document.getElementById('work-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Projelerimiz</a>
+              <a class="text-slate-400 hover:text-slate-200 text-base font-semibold leading-normal min-w-40" href="#" onclick="document.getElementById('contact-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'center' }); return false;">İletişim</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="#" aria-label="Twitter">
+                <div class="text-slate-500 hover:text-slate-300" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256"><path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path></svg>
+                </div>
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <div class="text-slate-500 hover:text-slate-300" data-icon="LinkedinLogo" data-size="24px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>
+                </div>
+              </a>
+            </div>
+            <p class="text-slate-500 text-base font-normal leading-normal">© 2024 Ada Yalıtım. Tüm hakları saklıdır. Mükemmel yalıtım çözümleri için bizimle ortaklık kurun.</p>
+          </div>
+        </footer>
+      </div>
+
+      </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // === APPLY BACKGROUND IMAGES FROM URL VARIABLES ===
+  // Hero section
+  const heroElement = document.getElementById('hero-background');
+  if (heroElement) {
+    heroElement.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%), url("${IMAGE_URLS.heroBackground}")`;
+    heroElement.onerror = function() {
+      this.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%), url("${IMAGE_URLS.placeholder}")`;
+    };
+  }
+
+  // Service section images
+  const serviceImages = [
+    { id: 'tavan-yalitimi-img', url: IMAGE_URLS.tavanYalitimi },
+    { id: 'duvar-yalitimi-img', url: IMAGE_URLS.duvarYalitimi },
+    { id: 'tum-yuzeyler-img', url: IMAGE_URLS.tumYuzeyler }
+  ];
+
+  // Project section images
+  const projectImages = [
+    { id: 'villa-kompleks-img', url: IMAGE_URLS.villaKompleks },
+    { id: 'ofis-binasi-img', url: IMAGE_URLS.ofisBinasi },
+    { id: 'apartman-su-img', url: IMAGE_URLS.apartmanSu }
+  ];
+
+  // Apply all service and project images
+  [...serviceImages, ...projectImages].forEach(({ id, url }) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.style.backgroundImage = `url("${url}")`;
+    }
+  });
+
+  // --- Existing IntersectionObserver code for header CTA and sticky bar ---
+  const contactSectionAnchor = document.getElementById('contact-section-anchor');
+  const headerCtaButton = document.getElementById('header-cta-button');
+
+  if (contactSectionAnchor && headerCtaButton) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Contact section is in view, hide other CTAs
+            headerCtaButton.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+            headerCtaButton.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+          } else {
+            // Contact section is NOT in view, show other CTAs
+            headerCtaButton.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            headerCtaButton.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+          }
+        });
+      },
+      {
+        rootMargin: '0px', 
+        threshold: 0.1, 
+      }
+    );
+    observer.observe(contactSectionAnchor);
+  } else {
+    console.warn('One or more elements for CTA visibility logic not found.');
+  }
+
+  // --- New Mobile Menu Logic ---
+  const mobileMenuButton = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuIconContainer = document.getElementById('mobile-menu-icon-container');
+  
+  // SVG for the List/Hamburger Icon
+  const listIconSvg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+      <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
+    </svg>`;
+  
+  // SVG for the Close (X) Icon
+  const closeIconSvg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+      <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
+    </svg>`;
+
+  if (mobileMenuButton && mobileMenu && mobileMenuIconContainer) {
+    mobileMenuButton.addEventListener('click', () => {
+      const isMenuOpening = mobileMenu.classList.contains('hidden');
+      
+      mobileMenu.classList.toggle('hidden');
+      mobileMenuButton.setAttribute('aria-expanded', isMenuOpening ? 'true' : 'false');
+      
+      if (isMenuOpening) {
+        mobileMenuIconContainer.innerHTML = closeIconSvg;
+        document.body.classList.add('body-no-scroll'); // Prevent body scroll
+      } else {
+        mobileMenuIconContainer.innerHTML = listIconSvg;
+        document.body.classList.remove('body-no-scroll'); // Restore body scroll
+      }
+    });
+  }
+
+  // Make closeMobileMenu globally accessible for inline onclicks
+  window.closeMobileMenu = function() {
+    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+      mobileMenuButton.setAttribute('aria-expanded', 'false');
+      if (mobileMenuIconContainer) {
+          mobileMenuIconContainer.innerHTML = listIconSvg;
+      }
+      document.body.classList.remove('body-no-scroll'); // Restore body scroll
+    }
+  }
+});
+</script>
+</body>
+</html>
