@@ -128,7 +128,7 @@
           <div class="@[480px]:p-4">
             <div class="max-w-7xl mx-auto">
               <div class="relative min-h-[480px] overflow-hidden @[480px]:rounded-xl">
-                <video autoplay loop muted playsinline preload="metadata" class="absolute top-0 left-0 w-full h-full object-cover">
+                <video id="hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto" class="absolute top-0 left-0 w-full h-full object-cover">
                   <source src="1.mp4" type="video/mp4" />
                 </video>
                 <div class="absolute inset-0 bg-black/50"></div>
@@ -396,6 +396,36 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  // === VIDEO AUTOPLAY FIX FOR SAFARI IOS ===
+  const heroVideo = document.getElementById('hero-video');
+  if (heroVideo) {
+    // Attempt to play the video programmatically for Safari iOS
+    const playVideo = () => {
+      heroVideo.play().catch(error => {
+        console.log('Video autoplay failed:', error);
+        // Fallback: try again after a short delay
+        setTimeout(() => {
+          heroVideo.play().catch(e => console.log('Video play retry failed:', e));
+        }, 1000);
+      });
+    };
+
+    // Try to play immediately
+    playVideo();
+
+    // Also try when the video is loaded
+    heroVideo.addEventListener('loadeddata', playVideo);
+    
+    // For iOS Safari: try on first user interaction
+    const playOnInteraction = () => {
+      heroVideo.play().catch(e => console.log('Video play on interaction failed:', e));
+      document.removeEventListener('touchstart', playOnInteraction);
+      document.removeEventListener('click', playOnInteraction);
+    };
+    document.addEventListener('touchstart', playOnInteraction, { once: true });
+    document.addEventListener('click', playOnInteraction, { once: true });
+  }
+
   // === APPLY BACKGROUND IMAGES FROM URL VARIABLES ===
   
 
