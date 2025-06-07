@@ -18,18 +18,11 @@
     <script>
       // === IMAGE URLS - Easy to change from here ===
       const IMAGE_URLS = {
-        // Hero section background
-        heroBackground: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
         
         // Service section images
         tavanYalitimi: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         duvarYalitimi: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         tumYuzeyler: "https://images.unsplash.com/photo-1585664811087-47f65abbad64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        
-        // Project section images
-        villaKompleks: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        ofisBinasi: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        apartmanSu: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         
         // Fallback placeholder
         placeholder: "https://placehold.co/1200x600/cccccc/333333?text=Profesyonel+Yalıtım"
@@ -125,7 +118,6 @@
         <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-slate-900 bg-opacity-95 z-40 flex flex-col items-center justify-center" role="dialog" aria-modal="true">
           <nav class="flex flex-col gap-6 text-center">
             <a href="#" onclick="document.getElementById('services-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); closeMobileMenu(); return false;" class="text-white hover:text-orange-400 py-3 text-2xl font-semibold">Hizmetlerimiz</a>
-            <a href="#" onclick="document.getElementById('work-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); closeMobileMenu(); return false;" class="text-white hover:text-orange-400 py-3 text-2xl font-semibold">Projelerimiz</a>
             <a href="#" onclick="document.getElementById('testimonials-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); closeMobileMenu(); return false;" class="text-white hover:text-orange-400 py-3 text-2xl font-semibold">Müşteri Görüşleri</a>
             <a href="#" onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' }); closeMobileMenu(); return false;" class="text-white hover:text-orange-400 py-3 text-2xl font-semibold">İletişim</a>
             <button onclick="closeMobileMenu();" class="mt-8 text-slate-400 hover:text-white text-xl font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400">Menüyü Kapat</button>
@@ -135,26 +127,29 @@
         <div class="@container">
           <div class="@[480px]:p-4">
             <div class="max-w-7xl mx-auto">
-              <div
-                id="hero-background"
-                class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
-              >
-                <div class="flex flex-col gap-2 text-left">
-                  <h1
-                    class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+              <div class="relative min-h-[480px] overflow-hidden @[480px]:rounded-xl">
+                <video autoplay loop muted playsinline preload="metadata" class="absolute top-0 left-0 w-full h-full object-cover">
+                  <source src="1.mp4" type="video/mp4" />
+                </video>
+                <div class="absolute inset-0 bg-black/50"></div>
+                <div class="relative z-10 flex min-h-[480px] flex-col items-start justify-end gap-6 px-4 pb-10 @[480px]:gap-8 @[480px]:px-10">
+                  <div class="flex flex-col gap-2 text-left">
+                    <h1
+                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                    >
+                      Isı, Ses ve Suya Karşı Tam Koruma
+                    </h1>
+                    <h2 class="text-gray-200 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      Profesyonel ekibimiz ile tavan, duvar ve tüm yüzeyler için mükemmel yalıtım performansı. Konforlu ve verimli yaşam alanları için kapsamlı yalıtım çözümleri.
+                    </h2>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 @[480px]:h-14 @[480px]:px-8 bg-slate-800 text-white text-lg font-semibold leading-normal tracking-[0.015em] hover:bg-slate-700 hover:scale-105 transform transition-all duration-300"
+                    onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' });"
                   >
-                    Isı, Ses ve Suya Karşı Tam Koruma
-                  </h1>
-                  <h2 class="text-gray-200 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                    Profesyonel ekibimiz ile tavan, duvar ve tüm yüzeyler için mükemmel yalıtım performansı. Konforlu ve verimli yaşam alanları için kapsamlı yalıtım çözümleri.
-                  </h2>
+                    <span class="truncate">Teklif İsteyin</span>
+                  </button>
                 </div>
-                <button
-                  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 @[480px]:h-14 @[480px]:px-8 bg-slate-800 text-white text-lg font-semibold leading-normal tracking-[0.015em] hover:bg-slate-700 hover:scale-105 transform transition-all duration-300"
-                  onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' });"
-                >
-                  <span class="truncate">Teklif İsteyin</span>
-                </button>
               </div>
             </div>
           </div>
@@ -219,67 +214,6 @@
               </a>
             </div>
           </div>
-        </div>
-
-        <div id="work-section-anchor" class="flex flex-col gap-10 px-4 py-10 @container bg-[#6aabd2]">
-            <div class="max-w-7xl mx-auto w-full">
-                <div class="flex flex-col gap-6">
-                    <div class="flex flex-col gap-4">
-                    <h1
-                        class="text-slate-900 tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
-                    >
-                        Başarılı Yalıtım Projelerimiz
-                    </h1>
-                    <p class="text-slate-800 text-base font-normal leading-normal max-w-[720px]">
-                        21 ilde 40 merkezimizle geniş hizmet ağımız sayesinde binlerce başarılı proje gerçekleştirdik. Müşteri memnuniyeti odaklı çalışmalarımızı inceleyin.
-                    </p>
-                    </div>
-                </div>
-                <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 md:gap-6 mt-10">
-                <a href="#" onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
-                    <div class="flex flex-col gap-3 p-4">
-                        <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
-                            <div id="villa-kompleks-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
-                            <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl">
-                                <span class="text-white text-lg font-bold">Teklif İsteyin ➞</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="text-slate-900 text-lg font-semibold leading-normal">Villa Kompleks Yalıtımı</p>
-                            <p class="text-slate-700 text-sm font-normal leading-normal">Kapsamlı tavan ve duvar yalıtımı ile mükemmel enerji verimliliği sağlandı.</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
-                    <div class="flex flex-col gap-3 p-4">
-                        <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
-                            <div id="ofis-binasi-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
-                            <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl">
-                                <span class="text-white text-lg font-bold">Teklif İsteyin ➞</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="text-slate-900 text-lg font-semibold leading-normal">Ofis Binası Ses Yalıtımı</p>
-                            <p class="text-slate-700 text-sm font-normal leading-normal">Profesyonel ekip ile ses yalıtımı ve nem bariyeri uygulaması başarıyla tamamlandı.</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
-                    <div class="flex flex-col gap-3 p-4">
-                        <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
-                            <div id="apartman-su-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
-                            <div class="card-overlay absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl">
-                                <span class="text-white text-lg font-bold">Teklif İsteyin ➞</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="text-slate-900 text-lg font-semibold leading-normal">Apartman Su Yalıtımı</p>
-                            <p class="text-slate-700 text-sm font-normal leading-normal">Detaylı planlama ile su yalıtımı ve ısı kaybını önleme çözümleri uygulandı.</p>
-                        </div>
-                    </div>
-                </a>
-               </div>
-            </div>
         </div>
 
         <div id="testimonials-section-anchor" class="flex flex-col gap-10 px-4 py-10 @container bg-[#6aabd2]">
@@ -448,7 +382,6 @@
             <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 @[480px]:flex-row @[480px]:justify-around">
               <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="https://www.facebook.com/p/Ada-Yal%C4%B1t%C4%B1m-100063981616180/" target="_blank">Hakkımızda</a>
               <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="#" onclick="document.getElementById('services-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Hizmetlerimiz</a>
-              <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="#" onclick="document.getElementById('work-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Projelerimiz</a>
               <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="#" onclick="document.getElementById('testimonials-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Müşteri Görüşleri</a>
               <a class="text-slate-400 hover:text-slate-200 text-base font-semibold leading-normal min-w-40" href="#" onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' }); return false;">İletişim</a>
             </div>
@@ -464,14 +397,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   // === APPLY BACKGROUND IMAGES FROM URL VARIABLES ===
-  // Hero section
-  const heroElement = document.getElementById('hero-background');
-  if (heroElement) {
-    heroElement.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%), url("${IMAGE_URLS.heroBackground}")`;
-    heroElement.onerror = function() {
-      this.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%), url("${IMAGE_URLS.placeholder}")`;
-    };
-  }
+  
 
   // Service section images
   const serviceImages = [
@@ -480,15 +406,8 @@ document.addEventListener('DOMContentLoaded', function () {
     { id: 'tum-yuzeyler-img', url: IMAGE_URLS.tumYuzeyler }
   ];
 
-  // Project section images
-  const projectImages = [
-    { id: 'villa-kompleks-img', url: IMAGE_URLS.villaKompleks },
-    { id: 'ofis-binasi-img', url: IMAGE_URLS.ofisBinasi },
-    { id: 'apartman-su-img', url: IMAGE_URLS.apartmanSu }
-  ];
-
-  // Apply all service and project images
-  [...serviceImages, ...projectImages].forEach(({ id, url }) => {
+  // Apply all service images
+  serviceImages.forEach(({ id, url }) => {
     const element = document.getElementById(id);
     if (element) {
       element.style.backgroundImage = `url("${url}")`;
