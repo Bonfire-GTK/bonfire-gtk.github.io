@@ -444,35 +444,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // --- Existing IntersectionObserver code for header CTA and sticky bar ---
-  const contactSectionAnchor = document.getElementById('contact-section-anchor');
-  const headerCtaButton = document.getElementById('header-cta-button');
-
-  if (contactSectionAnchor && headerCtaButton) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Contact section is in view, hide other CTAs
-            headerCtaButton.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
-            headerCtaButton.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-          } else {
-            // Contact section is NOT in view, show other CTAs
-            headerCtaButton.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
-            headerCtaButton.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
-          }
-        });
-      },
-      {
-        rootMargin: '0px', 
-        threshold: 0.1, 
-      }
-    );
-    observer.observe(contactSectionAnchor);
-  } else {
-    console.warn('One or more elements for CTA visibility logic not found.');
-  }
-
   // --- New Mobile Menu Logic ---
   const mobileMenuButton = document.getElementById('mobile-menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
