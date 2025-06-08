@@ -91,7 +91,7 @@
             <button
               id="header-cta-button" 
               class="flex items-center justify-center rounded-full h-10 px-6 bg-slate-700 text-white text-sm font-semibold leading-normal tracking-[0.015em] hover:bg-slate-600 transition-all duration-300 ease-in-out whitespace-nowrap"
-              onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' });"
+              onclick="openContactModal()"
             >
               Hızlı Teklif
             </button>
@@ -119,7 +119,7 @@
           <nav class="flex flex-col gap-6 text-center">
             <a href="#" onclick="document.getElementById('services-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); closeMobileMenu(); return false;" class="text-white hover:text-orange-400 py-3 text-2xl font-semibold">Hizmetlerimiz</a>
             <a href="#" onclick="document.getElementById('testimonials-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); closeMobileMenu(); return false;" class="text-white hover:text-orange-400 py-3 text-2xl font-semibold">Müşteri Görüşleri</a>
-            <a href="#" onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' }); closeMobileMenu(); return false;" class="text-white hover:text-orange-400 py-3 text-2xl font-semibold">İletişim</a>
+            <a href="#" onclick="openContactModal(); closeMobileMenu(); return false;" class="text-white hover:text-orange-400 py-3 text-2xl font-semibold">İletişim</a>
             <button onclick="closeMobileMenu();" class="mt-8 text-slate-400 hover:text-white text-xl font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400">Menüyü Kapat</button>
           </nav>
         </div>
@@ -145,7 +145,7 @@
                   </div>
                   <button
                     class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 @[480px]:h-14 @[480px]:px-8 bg-slate-800 text-white text-lg font-semibold leading-normal tracking-[0.015em] hover:bg-slate-700 hover:scale-105 transform transition-all duration-300"
-                    onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' });"
+                    onclick="openContactModal()"
                   >
                     <span class="truncate">Teklif İsteyin</span>
                   </button>
@@ -170,7 +170,7 @@
               </div>
             </div>
             <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4 md:gap-6 mt-10">
-              <a href="#" onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
+              <a href="#" onclick="openContactModal(); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
                 <div class="flex flex-col gap-3 p-4">
                   <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
                       <div id="tavan-yalitimi-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
@@ -184,7 +184,7 @@
                   </div>
                 </div>
               </a>
-              <a href="#" onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
+              <a href="#" onclick="openContactModal(); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
                 <div class="flex flex-col gap-3 p-4">
                   <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
                       <div id="duvar-yalitimi-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
@@ -198,7 +198,7 @@
                   </div>
                 </div>
               </a>
-              <a href="#" onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' }); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
+              <a href="#" onclick="openContactModal(); return false;" class="group block rounded-lg bg-white/50 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300">
                 <div class="flex flex-col gap-3 p-4">
                   <div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-xl shadow-lg relative">
                       <div id="tum-yuzeyler-img" class="absolute inset-0 bg-cover bg-center rounded-xl"></div>
@@ -318,14 +318,34 @@
             </div>
         </div>
         
-        <div class="h-40 md:h-64 bg-gradient-to-b from-[#6aabd2] to-slate-700"></div>
+        <div class="h-40 md:h-64 bg-gradient-to-b from-[#6aabd2] to-slate-900"></div>
 
-        <div class="bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 py-16 md:py-32 lg:py-40 shadow-2xl md:min-h-screen flex items-center" id="contact-section-anchor"> 
-          <div class="flex flex-col justify-center items-center gap-6 px-6 @[480px]:gap-10 @[480px]:px-12 py-8 @[480px]:py-16 md:py-24 pb-16 md:pb-24 text-center mx-auto max-w-5xl w-full">
+        <footer class="flex flex-col gap-6 px-5 py-10 text-center @container bg-slate-900 border-t border-slate-700">
+          <div class="max-w-7xl mx-auto w-full">
+            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 @[480px]:flex-row @[480px]:justify-around">
+              <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="https://www.facebook.com/p/Ada-Yal%C4%B1t%C4%B1m-100063981616180/" target="_blank">Hakkımızda</a>
+              <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="#" onclick="document.getElementById('services-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Hizmetlerimiz</a>
+              <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="#" onclick="document.getElementById('testimonials-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Müşteri Görüşleri</a>
+              <a class="text-slate-400 hover:text-slate-200 text-base font-semibold leading-normal min-w-40" href="#" onclick="openContactModal(); return false;">İletişim</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+            </div>
+            <p class="text-slate-500 text-base font-normal leading-normal">© 2024 Ada Yalıtım. Tüm hakları saklıdır. Mükemmel yalıtım çözümleri için bizimle ortaklık kurun.</p>
+          </div>
+        </footer>
+      </div>
+
+      <!-- Contact Modal -->
+      <div id="contact-modal" class="fixed inset-0 bg-black/70 z-50 hidden items-center justify-center p-4 opacity-0 transition-opacity duration-300" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div id="modal-content" class="bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 rounded-2xl shadow-2xl max-w-5xl w-full mx-auto p-6 pt-12 md:p-12 relative transform transition-all duration-300 scale-95 opacity-0">
+          <button id="modal-close-button" class="absolute top-3 right-3 text-slate-400 hover:text-white transition-colors p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-400" aria-label="Close modal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" fill="currentColor" viewBox="0 0 256 256">
+              <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
+            </svg>
+          </button>
+          <div class="flex flex-col justify-center items-center gap-6 text-center mx-auto max-w-5xl w-full">
             <div class="flex flex-col gap-8">
-              <h1
-                class="text-orange-400 tracking-tight text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[900px]"
-              >
+              <h1 id="modal-title" class="text-orange-400 tracking-tight text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[900px]">
                 Ada Yalıtım ile Yaşam Alanınızı Koruyun!
               </h1>
               <p class="text-gray-200 text-xl md:text-2xl font-medium leading-relaxed max-w-[800px] mx-auto">
@@ -335,63 +355,29 @@
                 📞 İletişim: 0555 052 54 54
               </div>
             </div>
-            <div id="contact-action-buttons" class="flex justify-center items-center w-full mt-8 pb-8">
-              <!-- Mobile buttons: Call, Facebook, WhatsApp (visible on small screens only) -->
+            <div id="contact-action-buttons" class="flex justify-center items-center w-full mt-8">
               <div class="flex flex-col gap-4 w-full max-w-sm mx-auto md:hidden">
-                <button
-                  class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 px-8 bg-orange-500 text-white text-xl font-extrabold leading-normal tracking-[0.015em] hover:bg-orange-600 transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105 animate-classy-glow"
-                  onclick="window.open('tel:05550525454', '_self');" 
-                >
+                <button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 px-8 bg-orange-500 text-white text-xl font-extrabold leading-normal tracking-[0.015em] hover:bg-orange-600 transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105 animate-classy-glow" onclick="window.open('tel:05550525454', '_self');">
                   <span class="truncate">📞 Hemen Arayın! 0555 052 54 54</span>
                 </button>
-                <button
-                  class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 px-8 bg-[#1877F2] text-white text-xl font-extrabold leading-normal tracking-[0.015em] hover:bg-[#166FE5] transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105"
-                  onclick="window.open('https://m.me/100063981616180', '_blank');" 
-                >
+                <button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 px-8 bg-[#1877F2] text-white text-xl font-extrabold leading-normal tracking-[0.015em] hover:bg-[#166FE5] transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105" onclick="window.open('https://m.me/100063981616180', '_blank');">
                   <span class="truncate">💬 Facebook'ta Sohbet Et</span>
                 </button>
-                <button
-                  class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 px-8 bg-[#25D366] text-white text-xl font-extrabold leading-normal tracking-[0.015em] hover:bg-[#20BD5A] transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105"
-                  onclick="window.open('https://wa.me/905550525454', '_blank');" 
-                >
+                <button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-16 px-8 bg-[#25D366] text-white text-xl font-extrabold leading-normal tracking-[0.015em] hover:bg-[#20BD5A] transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105" onclick="window.open('https://wa.me/905550525454', '_blank');">
                   <span class="truncate">📱 WhatsApp'tan Yaz</span>
                 </button>
               </div>
-              
-              <!-- Desktop button: Facebook only (visible on medium screens and up) -->
               <div class="hidden md:flex md:flex-col md:items-center md:gap-4">
-                <button
-                  class="flex min-w-[400px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-24 px-16 bg-[#1877F2] text-white text-3xl font-extrabold leading-normal tracking-[0.015em] hover:bg-[#166FE5] transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105 animate-facebook-glow"
-                  onclick="window.open('https://m.me/100063981616180', '_blank');" 
-                >
+                <button class="flex min-w-[400px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-24 px-16 bg-[#1877F2] text-white text-3xl font-extrabold leading-normal tracking-[0.015em] hover:bg-[#166FE5] transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105 animate-facebook-glow" onclick="window.open('https://m.me/100063981616180', '_blank');">
                   <span class="truncate">💬 Facebook'ta Sohbet Et ➞</span>
                 </button>
-                <button
-                  class="flex min-w-[400px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-24 px-16 bg-[#1877F2] text-white text-3xl font-extrabold leading-normal tracking-[0.015em] hover:bg-[#166FE5] transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105 animate-facebook-glow"
-                  onclick="window.open('https://www.facebook.com/p/Ada-Yal%C4%B1t%C4%B1m-100063981616180/', '_blank');" 
-                >
+                <button class="flex min-w-[400px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-24 px-16 bg-[#1877F2] text-white text-3xl font-extrabold leading-normal tracking-[0.015em] hover:bg-[#166FE5] transition-all duration-300 ease-in-out shadow-xl hover:shadow-2xl transform hover:scale-105 animate-facebook-glow" onclick="window.open('https://www.facebook.com/p/Ada-Yal%C4%B1t%C4%B1m-100063981616180/', '_blank');">
                   <span class="truncate">👍 Facebook Sayfamızı Ziyaret Et</span>
                 </button>
               </div>
             </div>
           </div>
         </div>
-
-        <footer class="flex flex-col gap-6 px-5 py-10 text-center @container bg-slate-900 border-t border-slate-700">
-          <div class="max-w-7xl mx-auto w-full">
-            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 @[480px]:flex-row @[480px]:justify-around">
-              <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="https://www.facebook.com/p/Ada-Yal%C4%B1t%C4%B1m-100063981616180/" target="_blank">Hakkımızda</a>
-              <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="#" onclick="document.getElementById('services-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Hizmetlerimiz</a>
-              <a class="text-slate-500 hover:text-slate-300 text-base font-normal leading-normal min-w-40" href="#" onclick="document.getElementById('testimonials-section-anchor').scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Müşteri Görüşleri</a>
-              <a class="text-slate-400 hover:text-slate-200 text-base font-semibold leading-normal min-w-40" href="#" onclick="document.getElementById('contact-action-buttons').scrollIntoView({ behavior: 'smooth', block: 'end' }); return false;">İletişim</a>
-            </div>
-            <div class="flex flex-wrap justify-center gap-4">
-            </div>
-            <p class="text-slate-500 text-base font-normal leading-normal">© 2024 Ada Yalıtım. Tüm hakları saklıdır. Mükemmel yalıtım çözümleri için bizimle ortaklık kurun.</p>
-          </div>
-        </footer>
-      </div>
-
       </div>
 
 <script>
@@ -441,6 +427,61 @@ document.addEventListener('DOMContentLoaded', function () {
     const element = document.getElementById(id);
     if (element) {
       element.style.backgroundImage = `url("${url}")`;
+    }
+  });
+
+  // --- Modal Logic ---
+  const contactModal = document.getElementById('contact-modal');
+  const modalContent = document.getElementById('modal-content');
+  const modalCloseButton = document.getElementById('modal-close-button');
+
+  function openContactModal() {
+    if (contactModal && modalContent) {
+      contactModal.classList.remove('hidden');
+      document.body.classList.add('body-no-scroll');
+      
+      // Animate in
+      setTimeout(() => {
+        contactModal.classList.remove('opacity-0');
+        modalContent.classList.remove('scale-95', 'opacity-0');
+      }, 10);
+    }
+  }
+
+  function closeContactModal() {
+    if (contactModal && modalContent) {
+      // Animate out
+      contactModal.classList.add('opacity-0');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      
+      setTimeout(() => {
+        contactModal.classList.add('hidden');
+        document.body.classList.remove('body-no-scroll');
+      }, 300); // Must match transition duration
+    }
+  }
+  
+  // Make open/close functions globally accessible
+  window.openContactModal = openContactModal;
+  
+  // Event listeners for closing the modal
+  if (modalCloseButton) {
+    modalCloseButton.addEventListener('click', closeContactModal);
+  }
+
+  if (contactModal) {
+    contactModal.addEventListener('click', (event) => {
+      // Close if clicked on the backdrop (the modal container itself)
+      if (event.target === contactModal) {
+        closeContactModal();
+      }
+    });
+  }
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !contactModal.classList.contains('hidden')) {
+      closeContactModal();
     }
   });
 
